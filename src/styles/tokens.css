@@ -1,0 +1,79 @@
+/* ============================================================
+   Design System "Ink" — Bela Ink Pizzería
+   Dirección: dark editorial / ink & neon (matchea la marca real:
+   tinta B&N, neón, arte, vino, pizza napolitana carbonada).
+   Cambiar marca = editar SOLO este archivo. Ver docs/04-design-system.md
+   Color en OKLCH para contraste perceptual predecible.
+   ============================================================ */
+
+:root {
+  /* ── Tinta & Papel (núcleo B&N del logo) ── */
+  --ink-950: oklch(15% 0.006 60);   /* fondo principal (tinta casi negra, cálida) */
+  --ink-900: oklch(19% 0.008 50);   /* superficies */
+  --ink-800: oklch(24% 0.01 45);    /* superficies elevadas */
+  --ink-700: oklch(32% 0.012 45);   /* bordes / divisores */
+  --paper-100: oklch(95% 0.012 85); /* texto/“papel” */
+  --paper-200: oklch(88% 0.014 85);
+
+  /* ── Neón de marca (de los letreros: rojo/coral) ── */
+  --neon-500: oklch(64% 0.23 25);   /* rojo neón — color de marca / CTA */
+  --neon-600: oklch(56% 0.22 25);   /* hover/pressed */
+  --neon-400: oklch(72% 0.20 30);   /* glow / highlight */
+  --wine-500: oklch(42% 0.13 18);   /* vino — acento secundario */
+  --amber-400: oklch(80% 0.14 70);  /* ámbar cálido — detalles, ratings */
+  --basil-500: oklch(64% 0.13 150); /* verde — éxito / etiqueta “veg” */
+
+  /* ── Semánticos (los componentes SÓLO usan estos) ── */
+  --color-bg: var(--ink-950);
+  --color-surface: var(--ink-900);
+  --color-surface-raised: var(--ink-800);
+  --color-border: oklch(40% 0.01 50 / 0.45);
+  --color-text: var(--paper-100);
+  --color-text-muted: oklch(70% 0.012 70);
+  --color-primary: var(--neon-500);
+  --color-primary-hover: var(--neon-600);
+  --color-on-primary: oklch(98% 0.01 85);
+  --color-accent: var(--amber-400);
+  --color-wine: var(--wine-500);
+  --color-success: var(--basil-500);
+  --color-danger: oklch(58% 0.21 25);
+  --color-focus: var(--amber-400);
+
+  /* ── Tipografía (familias inyectadas por next/font en layout) ── */
+  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+
+  /* Escala fluida (clamp) */
+  --text-xs: clamp(0.75rem, 0.72rem + 0.15vw, 0.8rem);
+  --text-sm: clamp(0.875rem, 0.84rem + 0.2vw, 0.95rem);
+  --text-base: clamp(1rem, 0.95rem + 0.3vw, 1.125rem);
+  --text-lg: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+  --text-xl: clamp(1.6rem, 1.4rem + 1vw, 2.2rem);
+  --text-2xl: clamp(2.2rem, 1.8rem + 2vw, 3.5rem);
+  --text-hero: clamp(2.8rem, 1.6rem + 7vw, 7rem);
+
+  --leading-tight: 1.04;
+  --leading-snug: 1.2;
+  --leading-normal: 1.55;
+  --tracking-tight: -0.03em;
+  --tracking-wide: 0.18em;
+
+  /* Spacing — ritmo intencional, base 4px */
+  --space-1: 0.25rem;  --space-2: 0.5rem;  --space-3: 0.75rem;
+  --space-4: 1rem;     --space-6: 1.5rem;  --space-8: 2rem;
+  --space-12: 3rem;    --space-16: 4rem;   --space-24: 6rem;
+  --space-section: clamp(4.5rem, 3rem + 6vw, 10rem);
+
+  /* Radius — no uniforme */
+  --radius-sm: 0.4rem; --radius-md: 0.75rem; --radius-lg: 1.25rem;
+  --radius-xl: 1.75rem; --radius-pill: 999px;
+
+  /* Shadow — profundidad + glow neón */
+  --shadow-sm: 0 1px 2px oklch(0% 0 0 / 0.4);
+  --shadow-md: 0 8px 26px oklch(0% 0 0 / 0.45);
+  --shadow-lg: 0 24px 60px oklch(0% 0 0 / 0.55);
+  --shadow-neon: 0 8px 40px oklch(64% 0.23 25 / 0.45);
+
+  /* Motion */
+  --dur-fast: 150ms; --dur-normal: 280ms; --dur-slow: 520ms;
+}

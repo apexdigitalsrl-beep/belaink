@@ -1,0 +1,51 @@
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
+import { StickyOrderBar } from "@/components/layout/StickyOrderBar";
+import { Hero } from "@/components/sections/Hero";
+import { Featured } from "@/components/sections/Featured";
+import { Benefits } from "@/components/sections/Benefits";
+import { Process } from "@/components/sections/Process";
+import { Reviews } from "@/components/sections/Reviews";
+import { Story } from "@/components/sections/Story";
+import { Location } from "@/components/sections/Location";
+import { Faq } from "@/components/sections/Faq";
+import { CtaBand } from "@/components/sections/CtaBand";
+import { FAQ } from "@/content/faq";
+
+/** FAQPage JSON-LD para rich results / AI overviews. */
+function faqSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: FAQ.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+}
+
+export default function HomePage() {
+  return (
+    <>
+      <Navbar />
+      <main id="main">
+        <Hero />
+        <Featured />
+        <Benefits />
+        <Process />
+        <Reviews />
+        <Story />
+        <Location />
+        <Faq />
+        <CtaBand />
+      </main>
+      <Footer />
+      <StickyOrderBar />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema()) }}
+      />
+    </>
+  );
+}
