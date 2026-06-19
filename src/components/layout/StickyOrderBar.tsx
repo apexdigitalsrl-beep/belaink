@@ -31,7 +31,7 @@ export function StickyOrderBar() {
           <p className="truncate text-sm font-semibold">{business.name}</p>
           <p className="truncate text-xs text-muted">{business.hoursHuman}</p>
         </div>
-        <Button as="a" href={business.contact.instagram} size="md">
+        <Button as="a" href="#reservar" variant="accent" size="md">
           {business.ordering.ctaLabel}
         </Button>
       </div>

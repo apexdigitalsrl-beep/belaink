@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Section, Eyebrow } from "@/components/ui/Section";
+import { Section } from "@/components/ui/Section";
 import { FAQ } from "@/content/faq";
 import { cn } from "@/lib/utils/cn";
 
@@ -12,8 +12,8 @@ export function Faq() {
   return (
     <Section id="faq" labelledBy="faq-title">
       <div className="mx-auto max-w-3xl">
-        <Eyebrow>Preguntas frecuentes</Eyebrow>
-        <h2 id="faq-title" className="mt-3 text-2xl">
+        <p className="reg-mark mb-5">Preguntas frecuentes</p>
+        <h2 id="faq-title" className="text-2xl">
           Lo que querés saber.
         </h2>
 

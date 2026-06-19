@@ -1,46 +1,45 @@
-import { Section, Eyebrow } from "@/components/ui/Section";
+import { Section } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
 
-const benefits = [
-  {
-    k: "01",
-    title: "Masa de verdad",
-    body: "Fermentación lenta y horno a alta temperatura. Orilla aireada, base ligera.",
-  },
-  {
-    k: "02",
-    title: "Pasta fresca",
-    body: "Hecha en casa. Textura y sabor que no salen de una caja.",
-  },
-  {
-    k: "03",
-    title: "Pizza + arte",
-    body: "Ilustración, tinta y exposiciones. No es sólo cenar, es un planazo.",
-  },
-  {
-    k: "04",
-    title: "Carta de vino",
-    body: "Para acompañar la noche. El maridaje correcto cambia todo.",
-  },
+const points = [
+  { title: "Masa de verdad", body: "Fermentación lenta y horno a alta temperatura. Orilla aireada, base ligera." },
+  { title: "Pasta fresca", body: "Hecha en casa. Textura y sabor que no salen de una caja." },
+  { title: "Pizza + arte", body: "Ilustración, tinta y exposiciones. No es sólo cenar, es un planazo." },
+  { title: "Carta de vino", body: "Para acompañar la noche. El maridaje correcto cambia todo." },
 ];
 
+/** Editorial, no grid de cards. Enunciado a la izquierda, lista con hairlines. */
 export function Benefits() {
   return (
     <Section labelledBy="benefits-title">
-      <Eyebrow>Por qué Bela Ink</Eyebrow>
-      <h2 id="benefits-title" className="mt-3 max-w-2xl text-2xl">
-        Una pizzería que se siente de otro nivel.
-      </h2>
+      <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+        <Reveal>
+          <h2 id="benefits-title" className="text-2xl">
+            Una pizzería que se siente de otro nivel.
+          </h2>
+          <p className="mt-5 max-w-sm text-muted">
+            Producto real sobre cadena clonada: lo que las grandes no pueden ofrecer.
+          </p>
+        </Reveal>
 
-      <ul className="mt-12 grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
-        {benefits.map((b, i) => (
-          <Reveal as="li" key={b.k} delay={i * 0.05} className="bg-surface p-6">
-            <span className="font-display text-lg text-primary">{b.k}</span>
-            <h3 className="mt-4 text-lg">{b.title}</h3>
-            <p className="mt-2 text-sm text-muted">{b.body}</p>
-          </Reveal>
-        ))}
-      </ul>
+        <ul className="border-t border-border">
+          {points.map((p, i) => (
+            <Reveal as="li" key={p.title} delay={i * 0.05}>
+              <div className="flex gap-6 border-b border-border py-6">
+                <span
+                  aria-hidden
+                  className="mt-2 h-2.5 w-2.5 flex-none rounded-full"
+                  style={{ background: "var(--vermilion)" }}
+                />
+                <div>
+                  <h3 className="font-display text-lg">{p.title}</h3>
+                  <p className="mt-1.5 text-muted">{p.body}</p>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </ul>
+      </div>
     </Section>
   );
 }

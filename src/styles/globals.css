@@ -5,11 +5,7 @@
 @tailwind utilities;
 
 @layer base {
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
+  *, *::before, *::after { box-sizing: border-box; }
 
   html {
     scroll-behavior: smooth;
@@ -24,89 +20,102 @@
     line-height: var(--leading-normal);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    /* Grano sutil de “papel/tinta” sin costo de imagen */
-    background-image: radial-gradient(
-      oklch(100% 0 0 / 0.015) 1px,
-      transparent 1px
-    );
-    background-size: 3px 3px;
+    /* Grano de impresión riso sobre el lienzo (barato, sin imagen) */
+    background-image: radial-gradient(var(--color-border) 0.5px, transparent 0.5px);
+    background-size: 4px 4px;
   }
 
   h1, h2, h3, h4 {
     font-family: var(--font-display);
     line-height: var(--leading-tight);
     letter-spacing: var(--tracking-tight);
-    font-weight: 600;
+    font-weight: 700;
     text-wrap: balance;
   }
 
-  p {
-    text-wrap: pretty;
-  }
+  p { text-wrap: pretty; }
+  a { color: inherit; text-decoration: none; }
 
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  /* Foco visible siempre (WCAG 2.2) */
   :focus-visible {
     outline: 2px solid var(--color-focus);
     outline-offset: 3px;
-    border-radius: 3px;
+    border-radius: 2px;
   }
 
-  ::selection {
-    background: var(--color-primary);
-    color: var(--color-on-primary);
-  }
+  ::selection { background: var(--vermilion); color: var(--bone); }
 
-  /* Respeto a usuarios con movimiento reducido */
   @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
+    *, *::before, *::after {
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;
     }
   }
+
+  /* Cursor de tinta: ocultar nativo solo en punteros finos (desktop) */
+  @media (pointer: fine) {
+    html.ink-cursor, html.ink-cursor * { cursor: none; }
+  }
 }
 
 @layer components {
   .container-content {
     width: 100%;
-    max-width: var(--max-w, 1320px);
+    max-width: 1320px;
     margin-inline: auto;
     padding-inline: clamp(1.25rem, 1rem + 3vw, 3rem);
   }
 
-  /* Eyebrow / label en mayúscula con tracking */
-  .eyebrow {
-    font-family: var(--font-sans);
-    text-transform: uppercase;
-    letter-spacing: var(--tracking-wide);
+  /* Plancha oscura: secciones a sangre con foto/atmósfera */
+  .plate {
+    background: var(--plate-bg);
+    color: var(--plate-text);
+  }
+  .plate ::selection { background: var(--bone); color: var(--ink); }
+
+  /* Etiqueta técnica de registro (mono) — reemplaza al eyebrow genérico */
+  .reg-mark {
+    font-family: var(--font-mono);
     font-size: var(--text-xs);
-    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--color-text-muted);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .reg-mark::before {
+    content: "";
+    width: 0.5rem; height: 0.5rem;
+    background: var(--vermilion);
+    border-radius: 50%;
+    flex: none;
+  }
+
+  /* Hairline de tinta */
+  .hairline { height: 1px; background: var(--color-border-strong); }
+
+  /* Etiqueta pequeña (labels de datos, no kicker de sección) */
+  .eyebrow {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: var(--text-xs);
     color: var(--color-text-muted);
   }
 
-  /* Texto con resaltado neón (para palabras clave en titulares) */
-  .neon-text {
-    color: var(--neon-400);
-    text-shadow: 0 0 18px oklch(64% 0.23 25 / 0.45);
+  /* Offset de registro riso en titulares (fantasma bermellón + cobalto) */
+  .riso-offset { position: relative; display: inline-block; }
+  .riso-offset::before,
+  .riso-offset::after {
+    content: attr(data-text);
+    position: absolute; inset: 0;
+    z-index: -1; pointer-events: none;
+    mix-blend-mode: multiply;
   }
-
-  /* Línea/hairline tipo trazo de tinta */
-  .hairline {
-    height: 1px;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      var(--color-border) 20%,
-      var(--color-border) 80%,
-      transparent
-    );
+  .riso-offset::before { color: var(--vermilion); transform: translate(0.06em, 0.04em); opacity: 0.85; }
+  .riso-offset::after { color: var(--cobalt); transform: translate(-0.05em, -0.03em); opacity: 0.7; }
+  @media (prefers-reduced-motion: reduce) {
+    .riso-offset::before, .riso-offset::after { display: none; }
   }
 }

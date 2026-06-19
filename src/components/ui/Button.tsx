@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils/cn";
 import type { ComponentPropsWithoutRef, ElementType, ReactNode } from "react";
 
-type Variant = "primary" | "secondary" | "ghost";
+type Variant = "primary" | "accent" | "secondary" | "ghost";
 type Size = "sm" | "md" | "lg";
 
 const base =
@@ -12,11 +12,13 @@ const base =
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-primary text-on-primary hover:bg-primary-hover hover:shadow-neon focus-visible:outline-accent",
+    "bg-primary text-on-primary hover:bg-primary-hover focus-visible:outline-cobalt",
+  accent:
+    "bg-accent text-ink hover:shadow-ink hover:brightness-105 focus-visible:outline-ink",
   secondary:
-    "bg-surface-raised text-text border border-border hover:border-primary focus-visible:outline-accent",
+    "bg-transparent text-text border border-border-strong hover:border-accent hover:text-accent focus-visible:outline-cobalt",
   ghost:
-    "bg-transparent text-text hover:text-accent focus-visible:outline-accent",
+    "bg-transparent text-text hover:text-accent focus-visible:outline-cobalt",
 };
 
 const sizes: Record<Size, string> = {

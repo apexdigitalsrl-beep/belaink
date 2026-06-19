@@ -3,6 +3,7 @@ import { Footer } from "@/components/layout/Footer";
 import { StickyOrderBar } from "@/components/layout/StickyOrderBar";
 import { Hero } from "@/components/sections/Hero";
 import { Featured } from "@/components/sections/Featured";
+import { Gallery } from "@/components/sections/Gallery";
 import { Benefits } from "@/components/sections/Benefits";
 import { Process } from "@/components/sections/Process";
 import { Reviews } from "@/components/sections/Reviews";
@@ -10,6 +11,7 @@ import { Story } from "@/components/sections/Story";
 import { Location } from "@/components/sections/Location";
 import { Faq } from "@/components/sections/Faq";
 import { CtaBand } from "@/components/sections/CtaBand";
+import { ReserveModal } from "@/components/sections/ReserveModal";
 import { FAQ } from "@/content/faq";
 
 /** FAQPage JSON-LD para rich results / AI overviews. */
@@ -32,6 +34,7 @@ export default function HomePage() {
       <main id="main">
         <Hero />
         <Featured />
+        <Gallery />
         <Benefits />
         <Process />
         <Reviews />
@@ -42,6 +45,7 @@ export default function HomePage() {
       </main>
       <Footer />
       <StickyOrderBar />
+      <ReserveModal />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema()) }}

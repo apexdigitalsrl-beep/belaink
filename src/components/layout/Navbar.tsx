@@ -7,8 +7,8 @@ import { cn } from "@/lib/utils/cn";
 
 const links = [
   { href: "#menu", label: "Menú" },
+  { href: "#galeria", label: "Galería" },
   { href: "#proceso", label: "Proceso" },
-  { href: "#historia", label: "Historia" },
   { href: "#ubicacion", label: "Ubicación" },
 ];
 
@@ -41,8 +41,8 @@ export function Navbar() {
         aria-label="Navegación principal"
         className="container-content flex h-16 items-center justify-between gap-4"
       >
-        <a href="#main" className="font-display text-xl font-bold tracking-tight">
-          BELA <span className="neon-text">INK</span>
+        <a href="#main" className="font-display text-xl font-extrabold tracking-tight">
+          BELA <span className="text-accent">INK</span>
         </a>
 
         <ul className="hidden items-center gap-8 md:flex">
@@ -59,7 +59,7 @@ export function Navbar() {
         </ul>
 
         <div className="hidden md:block">
-          <Button as="a" href={business.contact.instagram} size="sm">
+          <Button as="a" href="#reservar" variant="accent" size="sm">
             {business.ordering.ctaLabel}
           </Button>
         </div>
@@ -110,7 +110,7 @@ export function Navbar() {
               </li>
             ))}
             <li className="pt-2">
-              <Button as="a" href={business.contact.instagram} className="w-full" size="lg">
+              <Button as="a" href="#reservar" variant="accent" className="w-full" size="lg">
                 {business.ordering.ctaLabel}
               </Button>
             </li>

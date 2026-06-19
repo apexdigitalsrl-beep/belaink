@@ -1,4 +1,4 @@
-import { Section, Eyebrow } from "@/components/ui/Section";
+import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { business } from "@/content/business";
 
@@ -9,8 +9,8 @@ export function Location() {
     <Section id="ubicacion" labelledBy="loc-title">
       <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
         <div>
-          <Eyebrow>Visitanos</Eyebrow>
-          <h2 id="loc-title" className="mt-3 text-2xl">
+          <p className="reg-mark mb-5">Visitanos</p>
+          <h2 id="loc-title" className="text-2xl">
             En el corazón de San Miguel Chapultepec.
           </h2>
 

@@ -45,10 +45,8 @@ export function ImageSlot({
         }}
       >
         <div className="pointer-events-none select-none px-4 text-center">
-          <span className="block font-display text-lg text-paper/70">Bela Ink</span>
-          <span className="mt-1 block text-xs uppercase tracking-wide text-muted">
-            foto · {alt}
-          </span>
+          <span className="block font-display text-lg text-bone/70">Bela Ink</span>
+          <span className="mt-1 block font-mono text-xs text-bone/45">foto · {alt}</span>
         </div>
         {/* grano sutil */}
         <div

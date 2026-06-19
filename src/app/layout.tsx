@@ -1,14 +1,15 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Inter } from "next/font/google";
+import { Syne, Inter } from "next/font/google";
 import { business } from "@/content/business";
 import { restaurantSchema } from "@/lib/seo/schema";
+import { InkCursor } from "@/components/fx/InkCursor";
+import { IntroStamp } from "@/components/fx/IntroStamp";
 import "@/styles/globals.css";
 
-const fraunces = Fraunces({
+const syne = Syne({
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
-  style: ["normal", "italic"],
-  variable: "--font-fraunces",
+  weight: ["600", "700", "800"],
+  variable: "--font-syne",
   display: "swap",
 });
 
@@ -54,13 +55,13 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#1a1410",
-  colorScheme: "dark",
+  themeColor: "#f0eeea",
+  colorScheme: "light",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es-MX" className={`${fraunces.variable} ${inter.variable}`}>
+    <html lang="es-MX" className={`${syne.variable} ${inter.variable}`}>
       <body>
         <a
           href="#main"
@@ -68,10 +69,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Saltar al contenido
         </a>
+        <IntroStamp />
         {children}
+        <InkCursor />
         <script
           type="application/ld+json"
-          // JSON-LD del negocio (SEO local / AI overviews)
           dangerouslySetInnerHTML={{ __html: JSON.stringify(restaurantSchema()) }}
         />
       </body>
