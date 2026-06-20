@@ -27,7 +27,7 @@
 | Afinar copy de historia con la real | cliente |
 
 ### 🔜 Sprint 2 — "Deploy + SEO local"
-- Deploy a Vercel apuntando a `belaink.agvsolutions.online` (DNS).
+- Deploy a Vercel apuntando a `belainkpizza.agvsolutions.online` (DNS).
 - Google Business Profile: alta/optimización, NAP idéntico al sitio.
 - Verificar schema en Rich Results Test; enviar sitemap a Search Console.
 - Analytics (Vercel Analytics + GA4) con eventos del embudo (doc 03 §7).

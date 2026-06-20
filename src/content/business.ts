@@ -52,8 +52,8 @@ export const business = {
   },
 
   site: {
-    domain: "belaink.agvsolutions.online",
-    url: "https://belaink.agvsolutions.online",
+    domain: "belainkpizza.agvsolutions.online",
+    url: "https://belainkpizza.agvsolutions.online",
   },
 
   /**
