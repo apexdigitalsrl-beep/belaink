@@ -91,6 +91,30 @@ export const MENU: MenuItem[] = [
     available: true,
     isPlaceholder: true,
   },
+  {
+    slug: "bruschetta",
+    name: "Bruschetta",
+    description: "Pan tostado, jamón, reducción balsámica, microgreens.",
+    priceMXN: null,
+    category: "entradas",
+    image: "/img/gallery/g5.jpg",
+    imageAlt: "Bruschetta con neón de fondo",
+    tags: ["nuevo"],
+    available: true,
+    isPlaceholder: true,
+  },
+  {
+    slug: "postre-del-dia",
+    name: "Postre del día",
+    description: "El cierre dulce, con frutos rojos.",
+    priceMXN: null,
+    category: "postres",
+    image: "/img/gallery/g7.jpg",
+    imageAlt: "Postre en copa con frutos rojos",
+    tags: ["favorito"],
+    available: true,
+    isPlaceholder: true,
+  },
 ];
 
 /** Helpers de presentación */

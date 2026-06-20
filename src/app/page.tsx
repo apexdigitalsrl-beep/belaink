@@ -10,6 +10,7 @@ import { Benefits } from "@/components/sections/Benefits";
 import { Process } from "@/components/sections/Process";
 import { Reviews } from "@/components/sections/Reviews";
 import { Story } from "@/components/sections/Story";
+import { Arte } from "@/components/sections/Arte";
 import { Location } from "@/components/sections/Location";
 import { Faq } from "@/components/sections/Faq";
 import { CtaBand } from "@/components/sections/CtaBand";
@@ -43,6 +44,7 @@ export default function HomePage() {
         <Process />
         <Reviews />
         <Story />
+        <Arte />
         <Location />
         <Faq />
         <CtaBand />

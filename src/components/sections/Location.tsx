@@ -60,19 +60,17 @@ export function Location() {
           </div>
         </div>
 
-        {/* Mapa: slot. Embeber Google Maps real cuando haya lat/lng (business.address.geo). */}
-        <div
-          className="grid aspect-[4/3] place-items-center rounded-xl border border-border bg-surface text-center"
-          role="img"
-          aria-label="Mapa de ubicación (pendiente de coordenadas)"
-        >
-          <div className="px-6">
-            <p className="font-display text-xl">Mapa</p>
-            <p className="mt-2 text-sm text-muted">
-              Se incrusta el mapa real al confirmar coordenadas. Mientras, usá
-              “Cómo llegar”.
-            </p>
-          </div>
+        {/* Mapa real embebido (sin API key). Afinar con lat/lng exactas si hace falta. */}
+        <div className="overflow-hidden rounded-xl border border-border-strong shadow-md">
+          <iframe
+            title="Mapa — Bela Ink, San Miguel Chapultepec"
+            src={`https://www.google.com/maps?q=${encodeURIComponent(
+              `${address.full}`,
+            )}&output=embed`}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="aspect-[4/3] w-full grayscale-[0.2] contrast-[1.05]"
+          />
         </div>
       </div>
     </Section>
