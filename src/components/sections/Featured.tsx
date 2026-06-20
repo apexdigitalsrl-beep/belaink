@@ -2,7 +2,7 @@ import { Section } from "@/components/ui/Section";
 import { ImageSlot } from "@/components/ui/ImageSlot";
 import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
-import { featuredItems, isMenuReady } from "@/content/menu";
+import { featuredItems, isMenuReady, CATEGORIES } from "@/content/menu";
 import { business } from "@/content/business";
 
 /** Bento editorial de destacados. Precios pendientes manejados con gracia. */
@@ -75,6 +75,20 @@ export function Featured() {
             </div>
           </Reveal>
         ))}
+      </div>
+
+      <div className="mt-10 flex flex-wrap items-center gap-x-3 gap-y-2 border-t border-border pt-7">
+        <span className="reg-mark mr-2">La carta</span>
+        {CATEGORIES.map((c) => (
+          <span
+            key={c.slug}
+            title={c.blurb}
+            className="rounded-pill border border-border-strong px-4 py-1.5 font-mono text-sm"
+          >
+            {c.name}
+          </span>
+        ))}
+        <span className="font-mono text-sm text-muted">y más, próximamente</span>
       </div>
     </Section>
   );

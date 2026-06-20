@@ -95,6 +95,29 @@
   /* Hairline de tinta */
   .hairline { height: 1px; background: var(--color-border-strong); }
 
+  /* Marquee de imprenta (banda corrediza) */
+  .marquee { overflow: hidden; }
+  .marquee-track {
+    display: inline-flex;
+    white-space: nowrap;
+    will-change: transform;
+    animation: marquee 30s linear infinite;
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: var(--tracking-tight);
+    font-size: clamp(1.25rem, 3vw, 2.1rem);
+    padding-block: 0.7rem;
+  }
+  .marquee:hover .marquee-track { animation-play-state: paused; }
+  .marquee-track > span { padding-inline: 0.75rem; }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track { animation: none; }
+  }
+
   /* Etiqueta pequeña (labels de datos, no kicker de sección) */
   .eyebrow {
     font-family: var(--font-mono);

@@ -2,7 +2,9 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { StickyOrderBar } from "@/components/layout/StickyOrderBar";
 import { Hero } from "@/components/sections/Hero";
+import { Marquee } from "@/components/sections/Marquee";
 import { Featured } from "@/components/sections/Featured";
+import { Concept } from "@/components/sections/Concept";
 import { Gallery } from "@/components/sections/Gallery";
 import { Benefits } from "@/components/sections/Benefits";
 import { Process } from "@/components/sections/Process";
@@ -33,7 +35,9 @@ export default function HomePage() {
       <Navbar />
       <main id="main">
         <Hero />
+        <Marquee />
         <Featured />
+        <Concept />
         <Gallery />
         <Benefits />
         <Process />

@@ -95,4 +95,4 @@ export const MENU: MenuItem[] = [
 
 /** Helpers de presentación */
 export const isMenuReady = MENU.some((i) => !i.isPlaceholder && i.priceMXN !== null);
-export const featuredItems = MENU.slice(0, 3);
+export const featuredItems = MENU;

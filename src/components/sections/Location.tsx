@@ -25,7 +25,21 @@ export function Location() {
             </div>
             <div>
               <dt className="eyebrow">Horario</dt>
-              <dd className="mt-1 text-lg">{business.hoursHuman}</dd>
+              <dd className="mt-2">
+                <ul className="max-w-xs font-mono text-sm">
+                  {business.hours.map((h) => (
+                    <li
+                      key={h.day}
+                      className="flex justify-between border-b border-border py-1.5"
+                    >
+                      <span>{h.day}</span>
+                      <span className={h.open ? "font-semibold" : "text-muted"}>
+                        {h.open ? `${h.open}–${h.close}` : "Cerrado"}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </dd>
             </div>
           </dl>
 
